@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Portfolio</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --primary-color: #2a2a72;
+        --secondary-color: #009ffd;
+        --text-color: #333;
+        --bg-color: #f8f9fa;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+      }
+
+      /* Navigation */
+      nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        padding: 1rem;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+      }
+
+      nav ul {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+      }
+
+      nav ul li {
+        margin: 0 1.5rem;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: white;
+        font-weight: 500;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      nav ul li a:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      nav ul li a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        background: white;
+        bottom: 0;
+        left: 0;
+        transition: width 0.3s ease;
+      }
+
+      nav ul li a:hover::after {
+        width: 100%;
+      }
+
+      /* Sections */
+      section {
+        padding: 6rem 2rem;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      /* Hero Section */
+      #hero {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        color: white;
+        text-align: center;
+        padding-top: 12rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      #hero::before {
+        content: "";
+        position: absolute;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.1) 10%,
+          transparent 11%
+        );
+        background-size: 30px 30px;
+        transform: rotate(45deg);
+        opacity: 0.1;
+      }
+
+      #hero h1 {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        animation: fadeInUp 1s ease;
+      }
+
+      #hero p {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+        animation: fadeInUp 1s ease 0.2s;
+      }
+
+      .cta-button {
+        display: inline-block;
+        padding: 1rem 2rem;
+        background: white;
+        color: var(--primary-color);
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: transform 0.3s ease;
+        animation: fadeInUp 1s ease 0.4s;
+      }
+
+      .cta-button:hover {
+        transform: translateY(-3px);
+      }
+
+      /* About Section */
+      #about {
+        background: var(--bg-color);
+      }
+
+      .about-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: center;
+      }
+
+      .about-image {
+        background: linear-gradient(
+          45deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        border-radius: 20px;
+        padding: 20px;
+        max-width: 400px;
+      }
+
+      .about-image img {
+        width: 100%;
+        border-radius: 15px;
+      }
+
+      /* Skills Section */
+      #skills {
+        background: white;
+      }
+
+      .skills-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 2rem;
+      }
+
+      .skill {
+        background: white;
+        padding: 2rem;
+        border-radius: 15px;
+        text-align: center;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .skill:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      .skill i {
+        font-size: 2.5rem;
+        color: var(--secondary-color);
+        margin-bottom: 1rem;
+      }
+
+      /* Projects Section */
+      .projects-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+
+      .project-card {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .project-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      .project-image {
+        height: 200px;
+        background: #ddd;
+        overflow: hidden;
+      }
+
+      .project-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .project-card:hover .project-image img {
+        transform: scale(1.1);
+      }
+
+      .project-info {
+        padding: 1.5rem;
+      }
+
+      /* Contact Section */
+      #contact {
+        background: var(--bg-color);
+      }
+
+      .contact-form {
+        max-width: 600px;
+        margin: 0 auto;
+        background: white;
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+        border: 2px solid #eee;
+        border-radius: 8px;
+        transition: border-color 0.3s ease;
+      }
+
+      input:focus,
+      textarea:focus {
+        outline: none;
+        border-color: var(--secondary-color);
+      }
+
+      button {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        color: white;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: transform 0.3s ease;
+      }
+
+      button:hover {
+        transform: translateY(-3px);
+      }
+
+      /* Certificates Section */
+      .certificate-card {
+        background: white;
+        border-radius: 15px;
+        padding: 1.5rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .certificate-card:hover {
+        transform: translateY(-10px);
+      }
+
+      h1 {
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+      }
+      h2 {
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+        text-align: center;
+      }
+      h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      footer {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        color: white;
+        padding: 3rem 2rem;
+        text-align: center;
+      }
+
+      .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 2rem;
+      }
+
+      .footer-section {
+        flex: 1;
+        min-width: 250px;
+      }
+
+      .footer-section h3 {
+        color: white;
+        margin-bottom: 1.5rem;
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-top: 1rem;
+      }
+
+      .social-links a {
+        color: white;
+        font-size: 1.5rem;
+        transition: transform 0.3s ease;
+      }
+
+      .social-links a:hover {
+        transform: translateY(-3px);
+      }
+
+      .footer-bottom {
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .back-to-top {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        background: white;
+        color: var(--primary-color);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .back-to-top:hover {
+        transform: translateY(-3px);
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .about-content {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+
+        nav ul {
+          flex-wrap: wrap;
+          gap: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav>
+      <ul>
+        <li>
+          <a href="#hero"><i class="fas fa-home"></i> Home</a>
+        </li>
+        <li>
+          <a href="#about"><i class="fas fa-user"></i> About</a>
+        </li>
+        <li>
+          <a href="#skills"><i class="fas fa-code"></i> Skills</a>
+        </li>
+        <li>
+          <a href="#projects"
+            ><i class="fas fa-project-diagram"></i> Projects</a
+          >
+        </li>
+        <li>
+          <a href="#certificates"><i class="fas fa-award"></i> Certificates</a>
+        </li>
+        <li>
+          <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+      <div class="container">
+        <h1>Hi, I'm Hasindu Udara.</h1>
+        <p>Passionate Software Engineering Student</p>
+        <a href="#projects" class="cta-button">View My Work</a>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+      <div class="container">
+        <h2>About Me</h2>
+        <div class="about-content">
+          <div class="about-image">
+            <!-- Add your image here -->
+            <img
+              src="/assets/image/portfilio image 2 png.png"
+              alt="Your Name"
+            />
+          </div>
+          <div>
+            <p>
+              A dedicated software engineering student with expertise in
+              full-stack development. Currently pursuing my degree at IJSE, I
+              have developed strong skills in web development and Desktop app
+              creation. Passionate about creating efficient, user-friendly
+              solutions that solve real-world problems.
+            </p>
+            <p>
+              When I'm not coding, you can find me contributing to open-source
+              projects, learning new technologies, or participating in
+              hackathons.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+      <div class="container">
+        <h2>Technical Skills</h2>
+        <div class="skills-container">
+          <div class="skill">
+            <i class="fa-brands fa-java"></i>
+            <h3>Java</h3>
+          </div>
+          <div class="skill">
+            <i class="fa-solid fa-database"></i>
+            <h3>MySQL</h3>
+          </div>
+          <div class="skill">
+            <i class="fa-brands fa-html5"></i>
+            <h3>HTML</h3>
+          </div>
+          <div class="skill">
+            <i class="fa-brands fa-css3-alt"></i>
+            <h3>CSS</h3>
+          </div>
+          <div class="skill">
+            <i class="fa-brands fa-js"></i>
+            <h3>JavaScript</h3>
+          </div>
+          <div class="skill">
+            <i class="fa-brands fa-bootstrap"></i>
+            <h3>BootStrap</h3>
+          </div>
+          <div class="skill">
+            <i class="fa-brands fa-github"></i>
+            <h3>GitHub</h3>
+          </div>
+          <div class="skill">
+            <i class="fa-brands fa-figma"></i>
+            <h3>Figma</h3>
+          </div>
+          <div class="skill">
+            <i class="fa-solid fa-fire"></i>
+            <h3>Firebase</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+      <div class="container">
+        <h2>Featured Projects</h2>
+        <div class="projects-container">
+          <div class="project-card">
+            <div class="project-image">
+              <img src="project1.jpg" alt="Project 1" />
+            </div>
+            <div class="project-info">
+              <h3>E-Commerce Platform</h3>
+              <p>Full-stack e-commerce solution with React and Node.js</p>
+              <a href="#" class="cta-button">View Details</a>
+            </div>
+          </div>
+          <!-- Add more projects -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <div class="container">
+        <h2>Get In Touch</h2>
+        <form class="contact-form">
+          <input type="text" placeholder="Your Name" required />
+          <input type="email" placeholder="Your Email" required />
+          <textarea rows="5" placeholder="Your Message" required></textarea>
+          <button type="submit">
+            Send Message <i class="fas fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+      <div class="footer-content container">
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul style="list-style: none; padding: 0">
+            <li>
+              <a href="#hero" style="color: white; text-decoration: none"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a href="#about" style="color: white; text-decoration: none"
+                >About</a
+              >
+            </li>
+            <li>
+              <a href="#skills" style="color: white; text-decoration: none"
+                >Skills</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Connect With Me</h3>
+          <div class="social-links">
+            <a href="https://github.com/yourusername" target="_blank"
+              ><i class="fab fa-github"></i
+            ></a>
+            <a href="https://linkedin.com/in/yourusername" target="_blank"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <a href="https://twitter.com/yourusername" target="_blank"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a href="mailto:youremail@example.com"
+              ><i class="fas fa-envelope"></i
+            ></a>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h3>Credits</h3>
+          <p>Designed & Developed by<br />Hasindu Udara</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2024 Hasindu Udara. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div
+      class="back-to-top"
+      onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+    >
+      <i class="fas fa-arrow-up"></i>
+    </div>
+  </body>
+</html>
