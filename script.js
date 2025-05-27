@@ -42,4 +42,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
   heroText.textContent = ""; // Clear initial text
   typeEffect();
+
+  document
+    .querySelector(".contact-form")
+    .addEventListener("submit", (event) => {
+      event.preventDefault(); // Prevent the default form submission behavior
+
+      const name = document.querySelector(
+        ".contact-form input[type='text']"
+      ).value;
+      const email = document.querySelector(
+        ".contact-form input[type='email']"
+      ).value;
+      const message = document.querySelector(".contact-form textarea").value;
+
+      const mailtoLink = `mailto:hasiduudara@gmail.com?subject=Message from ${encodeURIComponent(
+        name
+      )}&body=${encodeURIComponent(message)}%0A%0AFrom: ${encodeURIComponent(
+        email
+      )}`;
+      window.location.href = mailtoLink;
+    });
 });
