@@ -192,7 +192,7 @@
 
       .skills-container {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        grid-template-columns: repeat(3, 1fr); /* Adjusted to 3 in a row */
         gap: 2rem;
       }
 
@@ -202,11 +202,14 @@
         border-radius: 15px;
         text-align: center;
         transition: all 0.3s ease;
+        border: 2px solid #b4b4b4;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
       }
 
       .skill:hover {
         transform: translateY(-10px);
+        color: #009ffd;
+        border: 2px solid #528efd;
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
       }
 
