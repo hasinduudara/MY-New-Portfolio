@@ -113,6 +113,18 @@
         transition: all 0.3s ease;
       }
 
+      .burger.active div:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      .burger.active div:nth-child(2) {
+        opacity: 0;
+      }
+
+      .burger.active div:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+      }
+
       /* Sections */
       section {
         padding: 6rem 2rem;
@@ -607,26 +619,34 @@
         </div>
         <ul>
           <li>
-            <a href="#hero"><i class="fas fa-home"></i> Home</a>
+            <a href="#hero" onclick="closeMenu()"
+              ><i class="fas fa-home"></i> Home</a
+            >
           </li>
           <li>
-            <a href="#about"><i class="fas fa-user"></i> About</a>
+            <a href="#about" onclick="closeMenu()"
+              ><i class="fas fa-user"></i> About</a
+            >
           </li>
           <li>
-            <a href="#skills"><i class="fas fa-code"></i> Skills</a>
+            <a href="#skills" onclick="closeMenu()"
+              ><i class="fas fa-code"></i> Skills</a
+            >
           </li>
           <li>
-            <a href="#projects"
+            <a href="#projects" onclick="closeMenu()"
               ><i class="fas fa-project-diagram"></i> Projects</a
             >
           </li>
           <li>
-            <a href="#certificates"
+            <a href="#certificates" onclick="closeMenu()"
               ><i class="fas fa-award"></i> Certificates</a
             >
           </li>
           <li>
-            <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+            <a href="#contact" onclick="closeMenu()"
+              ><i class="fas fa-envelope"></i> Contact</a
+            >
           </li>
         </ul>
       </nav>
@@ -1013,7 +1033,16 @@
     <script>
       function toggleMenu() {
         const nav = document.querySelector("nav ul");
+        const burger = document.querySelector(".burger");
         nav.classList.toggle("active");
+        burger.classList.toggle("active");
+      }
+
+      function closeMenu() {
+        const nav = document.querySelector("nav ul");
+        const burger = document.querySelector(".burger");
+        nav.classList.remove("active");
+        burger.classList.remove("active");
       }
     </script>
   </body>
