@@ -170,12 +170,13 @@
       }
 
       .about-image {
-        background: linear-gradient(
+        /* background: linear-gradient(
           45deg,
           var(--primary-color),
           var(--secondary-color)
-        );
-        border-radius: 20px;
+        ); */
+        background-color: #017ac1;
+        border-radius: 120px;
         padding: 20px;
         max-width: 400px;
       }
@@ -222,7 +223,7 @@
       /* Projects Section */
       .projects-container {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(3, 1fr);
         gap: 2rem;
       }
 
@@ -231,12 +232,22 @@
         border-radius: 15px;
         overflow: hidden;
         transition: all 0.3s ease;
+        border: 2px solid #727272;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
       }
 
       .project-card:hover {
         transform: translateY(-10px);
+        border: 2px solid #528efd;
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      .project-card h3:hover {
+        color: #005ca3;
+      }
+
+      .project-card p:hover {
+        color: #009ffd;
       }
 
       .project-image {
@@ -271,6 +282,7 @@
         background: white;
         padding: 2rem;
         border-radius: 15px;
+        border: 2px solid #c2c2c2;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
       }
 
@@ -279,7 +291,7 @@
         width: 100%;
         padding: 1rem;
         margin-bottom: 1.5rem;
-        border: 2px solid #eee;
+        border: 2px solid #c2c2c2;
         border-radius: 8px;
         transition: border-color 0.3s ease;
       }
@@ -315,11 +327,22 @@
         border-radius: 15px;
         padding: 1.5rem;
         transition: all 0.3s ease;
+        border: 2px solid #727272;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
       }
 
       .certificate-card:hover {
+        border: 2px solid #528efd;
+        color: #009ffd;
         transform: translateY(-10px);
+      }
+
+      .certificate-card img {
+        border: 2px solid #727272;
+      }
+
+      .certificate-card img:hover {
+        border: 2px solid #528efd;
       }
 
       .certificates-container {
@@ -483,10 +506,7 @@
         <div class="about-content">
           <div class="about-image">
             <!-- Add your image here -->
-            <img
-              src="/assets/image/portfilio image 2 png.png"
-              alt="Your Name"
-            />
+            <img src="/assets/image/new img.png" alt="Your Name" />
           </div>
           <div>
             <p>
