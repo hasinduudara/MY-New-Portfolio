@@ -34,7 +34,7 @@ nav {
 }
 
 nav ul {
-  display: flex;
+  display: none;
   justify-content: center;
   list-style: none;
   transition: all 0.3s ease;
@@ -82,7 +82,7 @@ nav ul li a:hover::after {
 
 /* Burger Button */
 .burger {
-  display: none;
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: 30px;
@@ -131,6 +131,18 @@ h2 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
+}
+
+@media (max-width: 1024px) {
+  .projects-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-container {
+    grid-template-columns: 1fr;
+  }
 }
 
 .project-card {

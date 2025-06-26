@@ -300,5 +300,21 @@
     >
       <i class="fas fa-arrow-up"></i>
     </div>
+
+    <script>
+      function toggleMenu() {
+        const burger = document.querySelector(".burger");
+        const navMenu = document.querySelector("nav ul");
+        burger.classList.toggle("active");
+        navMenu.classList.toggle("active");
+      }
+
+      function closeMenu() {
+        const burger = document.querySelector(".burger");
+        const navMenu = document.querySelector("nav ul");
+        burger.classList.remove("active");
+        navMenu.classList.remove("active");
+      }
+    </script>
   </body>
 </html>
