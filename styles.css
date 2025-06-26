@@ -404,6 +404,28 @@ h3 {
   transform: translateY(-3px) translateX(-50%);
 }
 
+#go-to-projects {
+  margin-top: 20px;
+  display: inline-block;
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.3s ease;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#go-to-projects:hover {
+  transform: translateY(-3px) translateX(-50%);
+}
+
 footer {
   background: linear-gradient(
     135deg,
