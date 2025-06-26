@@ -34,7 +34,7 @@ nav {
 }
 
 nav ul {
-  display: none;
+  display: flex;
   justify-content: center;
   list-style: none;
   transition: all 0.3s ease;
@@ -80,34 +80,6 @@ nav ul li a:hover::after {
   width: 100%;
 }
 
-/* Burger Button */
-.burger {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 30px;
-  height: 20px;
-  cursor: pointer;
-}
-
-.burger div {
-  height: 3px;
-  background: white;
-  border-radius: 5px;
-  transition: all 0.3s ease;
-}
-
-.burger.active div:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-.burger.active div:nth-child(2) {
-  opacity: 0;
-}
-
-.burger.active div:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
-}
 /* Sections */
 section {
   padding: 5rem 2rem;
@@ -131,18 +103,6 @@ h2 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-}
-
-@media (max-width: 1024px) {
-  .projects-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .projects-container {
-    grid-template-columns: 1fr;
-  }
 }
 
 .project-card {

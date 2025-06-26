@@ -80,35 +80,6 @@ nav ul li a:hover::after {
   width: 100%;
 }
 
-/* Burger Button */
-.burger {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 30px;
-  height: 20px;
-  cursor: pointer;
-}
-
-.burger div {
-  height: 3px;
-  background: white;
-  border-radius: 5px;
-  transition: all 0.3s ease;
-}
-
-.burger.active div:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-.burger.active div:nth-child(2) {
-  opacity: 0;
-}
-
-.burger.active div:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
-}
-
 #certificates {
   padding: 5rem 2rem;
   background: var(--bg-color);
@@ -142,37 +113,6 @@ nav ul li a:hover::after {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-}
-
-@media (max-width: 768px) {
-  .certificates-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 480px) {
-  .certificates-container {
-    grid-template-columns: 1fr;
-  }
-
-  nav ul {
-    display: none;
-    flex-direction: column;
-    background: var(--primary-color);
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    padding: 1rem 0;
-  }
-
-  nav ul.active {
-    display: flex;
-  }
-
-  .burger {
-    display: flex;
-  }
 }
 
 h2 {
