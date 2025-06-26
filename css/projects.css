@@ -156,6 +156,42 @@ h2 {
   align-items: center;
 }
 
+/* Responsive styles for 1024px */
+@media (max-width: 1024px) {
+  .projects-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  .project-card {
+    border: 1px solid #727272;
+  }
+}
+
+/* Responsive styles for 768px */
+@media (max-width: 768px) {
+  .projects-container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  .project-card {
+    border: 1px solid #727272;
+  }
+
+  .project-info {
+    padding: 1rem;
+  }
+}
+
 footer {
   background: linear-gradient(
     135deg,
