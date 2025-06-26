@@ -82,7 +82,7 @@ nav ul li a:hover::after {
 
 /* Burger Button */
 .burger {
-  display: none;
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: 30px;
