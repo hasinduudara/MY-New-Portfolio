@@ -144,6 +144,37 @@ nav ul li a:hover::after {
   gap: 2rem;
 }
 
+@media (max-width: 768px) {
+  .certificates-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .certificates-container {
+    grid-template-columns: 1fr;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    background: var(--primary-color);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 1rem 0;
+  }
+
+  nav ul.active {
+    display: flex;
+  }
+
+  .burger {
+    display: flex;
+  }
+}
+
 h2 {
   font-size: 2.5rem;
   margin-bottom: 3rem;

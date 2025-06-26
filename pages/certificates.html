@@ -217,5 +217,18 @@
     >
       <i class="fas fa-arrow-up"></i>
     </div>
+
+    <!-- Add a script to toggle responsive navigation -->
+    <script>
+      function toggleMenu() {
+        const nav = document.querySelector("nav ul");
+        nav.classList.toggle("active");
+      }
+
+      function closeMenu() {
+        const nav = document.querySelector("nav ul");
+        nav.classList.remove("active");
+      }
+    </script>
   </body>
 </html>
